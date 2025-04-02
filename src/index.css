@@ -9,11 +9,65 @@ html {
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* body {
-  background-image: url("/images/BG.jpg");
-  background-position: center;
-  background-attachment: fixed;
-  background-size: cover;
-} */
+/* Default state (collapsed) */
+.product-container {
+  transform: scale(1);
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Expanded state - Scale from 0 to 1 smoothly */
+.product-container.expanded {
+  transform: scale(1);
+  animation: scaleUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Smooth Scale-Up Animation */
+@keyframes scaleUp {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.02); /* Slight overshoot for a natural feel */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.shimmer-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* The shimmer overlay */
+.shimmer-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* Keyframes for shimmer animation */
+@keyframes shimmer {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}

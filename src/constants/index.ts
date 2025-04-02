@@ -2,8 +2,8 @@ export const HOME_DATA = [
     {
         id: 1,
         name: "dryummy",
-        image: "/images/CA.jpg",
-        insideImage: "/images/CA2.jpg",
+        image: "/images/CA-3.jpg",
+        insideImage: "https://i.ibb.co/Txsnysqj/CA-inside.jpg",
         subText: "Let’s make lunchtime both nutritious and fun!",
         description: [
             "Child nutrition is a crucial topic that demands our collective attention and effort. Even today, millions of our children worldwide experience malnutrition—not just undernourishment but also obesity. According to the United Nations Convention on the Rights of the Child, every child is entitled to the highest attainable standard of health. A balanced diet plays a key role in achieving this goal, supporting their physical growth and mental development.",
@@ -15,9 +15,9 @@ export const HOME_DATA = [
     {
         id: 2,
         name: "teluguties",
-        image: "/images/TT.jpg",
+        image: "/images/TT-3.jpg",
         logo: "/images/telugutieslogo.png",
-        insideImage: "/images/TT2.jpg",
+        insideImage: "https://i.ibb.co/7J3T7f24/TT2.jpg",
         description: [
             "Love isn’t just about feelings—it’s about the right equation! Finding your perfect match isn’t just fate; it’s a blend of emotions and smart data. Our new matrimonial platform understands your preferences, lifestyle, dreams, and values—all in one—to connect you with the perfect partner. Love isn’t just luck; it’s a well-made choice! With your mindset, your emotions, and our intelligent matchmaking, your perfect match is just a click away!"
         ]
@@ -25,9 +25,9 @@ export const HOME_DATA = [
     {
         id: 3,
         name: "radiomaria",
-        image: "/images/RM.jpg",
+        image: "/images/RM-3.jpg",
         logo: "/images/Radiosmaria.png",
-        insideImage: "/images/RM2.jpg",
+        insideImage: "https://i.ibb.co/N2sMWNBB/RM-inside.jpg",
         description: [
             "The Radio Maria mobile application is a seamless platform that brings you a rich collection of spiritual and uplifting songs, prayers, and live broadcasts. Designed to nourish the soul, this app provides a divine listening experience with features like",
             "Live Streaming: Tune in to Radio Maria stations worldwide and experience faith-filled music 24/7.",
@@ -40,8 +40,9 @@ export const HOME_DATA = [
     {
         id: 4,
         name: "olivia",
-        image: "/images/OL.jpg",
+        image: "/images/OX-3.jpg",
         logo: "/images/oX.png",
+        insideImage: "https://i.ibb.co/TB2Vzpb5/OX-3.jpg",
         description: [
             "Olivia Exchange is a next-generation cryptocurrency trading platform designed for speed, security, and simplicity. Built with cutting-edge technology, Olivia Exchange empowers traders with seamless transactions, advanced tools, and an intuitive interface.",
             "Key Features:",
