@@ -13,6 +13,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+
 /* Default state (collapsed) */
 .product-container {
   transform: scale(1);

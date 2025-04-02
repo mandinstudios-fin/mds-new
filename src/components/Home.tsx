@@ -61,7 +61,7 @@ const Product = ({ id, name, image, description, logo, content, isExpanded, onTo
                             </div>
                         </div>
 
-                        <div className="flex items-center justify-end mt-8">
+                        <div className="flex lg:flex-row flex-col items-center justify-end mt-8">
                             <p className="mb-8 font-light text-white">Download Our App</p>
                             <img src="/images/apps.png" className="" />
                         </div>
@@ -71,15 +71,6 @@ const Product = ({ id, name, image, description, logo, content, isExpanded, onTo
         </div>
     );
 };
-
-const About = () => {
-    return (
-        <div>
-
-        </div>
-    )
-}
-
 
 const Home = () => {
     const [expandedProductId, setExpandedProductId] = useState(null);
@@ -94,7 +85,7 @@ const Home = () => {
 
     return (
         <div
-            className="h-auto py-10 overflow-hidden bg-fixed bg-center bg-cover lg:w-screen lg:h-screen lg:py-0"
+            className="py-10 overflow-x-hidden bg-fixed bg-center bg-cover lg:py-0"
             style={{ backgroundImage: "url('/images/BG.jpg')" }}
         >
             <section className="max-w-[1536px] w-full h-full mx-auto flex flex-col ">
@@ -113,11 +104,8 @@ const Home = () => {
 
                 {!expandedProductId && <h2 className="lg:text-[55px] text-[40px] mt-10 lg:mt-20 lg:ml-[7rem] ml-[1rem] text-white/25 mb-2 lg:mb-0">Our Milestones</h2>}
                 <div
-                    className="flex flex-col gap-5 px-4 mb-10 transition-all duration-500 ease-in-out lg:flex-row lg:mt-4"
-                    style={{
-                        minHeight: expandedProductId ? "600px" : "540px",
-                        alignItems: expandedProductId ? "center" : "flex-start",
-                    }}
+                    className=" flex flex-col gap-5 px-4 lg:px-8 transition-all duration-500 ease-in-out lg:flex-row lg:mt-4"
+                    
                 >
                     {expandedProductId ? (
                         <Product {...expandedProduct} key={expandedProduct.id} isExpanded={true} onToggle={handleToggleExpand} />
@@ -141,7 +129,7 @@ const Home = () => {
                     )}
                 </div>
 
-                <div className={`lg:absolute mt-8 bottom-2 text-center  ${expandedProductId ? "right-10" : "right-0 left-0"}`}>
+                <div className={`pt-12 pb-4 px-8 text-center ${expandedProductId && "lg:text-right"}`}>
                     <p className="font-light text-white/50">Presented by Team of ManDIn Studios</p>
                 </div>
             </section>
