@@ -38,22 +38,6 @@ const Product = ({ id, name, image, description, logo, isExpanded, onToggle, ins
     const [imageLoaded, setImageLoaded] = useState(false);
     const [insideImageLoaded, setInsideImageLoaded] = useState(false);
     const [logoLoaded, setLogoLoaded] = useState(false);
-    const [isShrinking, setIsShrinking] = useState(false);
-
-    const handleToggle = (id) => {
-        if (id === null) {
-            // We're closing
-            setIsShrinking(true);
-            setTimeout(() => {
-                onToggle(null);
-                setIsShrinking(false);
-            }, 300); // Match this to your duration
-        } else {
-            // We're opening
-            onToggle(id);
-        }
-    };
-
 
     useEffect(() => {
         if (image) {
@@ -131,7 +115,7 @@ const Product = ({ id, name, image, description, logo, isExpanded, onToggle, ins
                             <button
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    handleToggle(id)
+                                    onToggle(id);
                                 }}
                                 className="absolute z-50 flex items-center justify-center w-12 h-12 transition-all duration-200 rounded-full cursor-pointer top-2 right-2 hover:bg-white/20 hover:scale-110"
                                 aria-label="Close"
