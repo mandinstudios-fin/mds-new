@@ -38,6 +38,22 @@ const Product = ({ id, name, image, description, logo, isExpanded, onToggle, ins
     const [imageLoaded, setImageLoaded] = useState(false);
     const [insideImageLoaded, setInsideImageLoaded] = useState(false);
     const [logoLoaded, setLogoLoaded] = useState(false);
+    const [isShrinking, setIsShrinking] = useState(false);
+
+    const handleToggle = (id) => {
+        if (id === null) {
+            // We're closing
+            setIsShrinking(true);
+            setTimeout(() => {
+                onToggle(null);
+                setIsShrinking(false);
+            }, 300); // Match this to your duration
+        } else {
+            // We're opening
+            onToggle(id);
+        }
+    };
+
 
     useEffect(() => {
         if (image) {
@@ -58,12 +74,11 @@ const Product = ({ id, name, image, description, logo, isExpanded, onToggle, ins
     }, [image, insideImage, logo]);
 
     return (
-        <div 
-            className={`product-container ${
-                isExpanded 
-                    ? "expanded lg:w-full lg:h-[600px] mt-10" 
-                    : "w-full lg:w-[307px] border-2 border-[#74aa9b] lg:h-[405px] h-[540px]"
-            } rounded-[2rem] p-2 relative expand-transition opacity-100 transition-all duration-700 ease-in-out transform-gpu`}
+        <div
+            className={`${isExpanded
+                ? "expanded lg:w-full lg:h-[600px] mt-10"
+                : "shrinking w-full lg:w-[307px] border-2 border-[#74aa9b] lg:h-[405px] h-[540px]"
+                } product-container rounded-[2rem] p-2 relative expand-transition opacity-100 transition-all duration-500 ease-in-out transform-gpu`}
         >
             {!isExpanded ? (
                 <div
@@ -91,15 +106,15 @@ const Product = ({ id, name, image, description, logo, isExpanded, onToggle, ins
                     </div>
                 </div>
             ) : (
-                <div className="flex flex-col w-full h-auto gap-10 overflow-hidden transition-all duration-700 ease-in-out lg:h-full lg:flex-row">
-                    <div className="lg:w-[409.344px] w-full lg:h-full h-auto">
+                <div className="flex flex-col w-full h-auto gap-10 overflow-hidden transition-all duration-700 ease-in-out transform scale-100 lg:h-full lg:flex-row">
+                    <div className="lg:w-[409.344px] w-full lg:h-full h-auto transition-all duration-300">
                         {insideImage ? (
                             <div className="relative w-full h-full">
                                 <div className={`absolute inset-0 bg-gray-200 animate-pulse rounded-[1.3rem] ${insideImageLoaded ? 'hidden' : 'block'}`} />
-                                <img 
-                                    src={insideImage} 
+                                <img
+                                    src={insideImage}
                                     loading="eager"
-                                    className={`w-full h-full object-cover rounded-[1.3rem] transition-opacity duration-300 ${insideImageLoaded ? 'opacity-100' : 'opacity-0'}`} 
+                                    className={`w-full h-full object-cover rounded-[1.3rem] transition-opacity duration-300 ${insideImageLoaded ? 'opacity-100' : 'opacity-0'}`}
                                     alt={name}
                                     width={409}
                                     height={600}
@@ -116,22 +131,22 @@ const Product = ({ id, name, image, description, logo, isExpanded, onToggle, ins
                             <button
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    onToggle(null);
+                                    handleToggle(id)
                                 }}
-                                className="absolute w-12 h-12 transition-all duration-200 rounded-full top-2 right-2 hover:bg-white/20 hover:scale-110 cursor-pointer flex items-center justify-center z-50"
+                                className="absolute z-50 flex items-center justify-center w-12 h-12 transition-all duration-200 rounded-full cursor-pointer top-2 right-2 hover:bg-white/20 hover:scale-110"
                                 aria-label="Close"
                             >
-                                <div className="w-full h-full flex items-center justify-center rounded-full hover:bg-white/10">
-                                    <X size={32} className="text-white/80 hover:text-white transition-colors" />
+                                <div className="flex items-center justify-center w-full h-full rounded-full hover:bg-white/10">
+                                    <X size={32} className="transition-colors text-white/80 hover:text-white" />
                                 </div>
                             </button>
 
                             {logo && (
                                 <div className="relative h-16 mb-6">
                                     <div className={`absolute inset-0 bg-gray-200 animate-pulse rounded-lg ${logoLoaded ? 'hidden' : 'block'}`} />
-                                    <img 
-                                        src={logo} 
-                                        className={`h-full w-auto object-contain transition-opacity duration-300 ${logoLoaded ? 'opacity-100' : 'opacity-0'}`} 
+                                    <img
+                                        src={logo}
+                                        className={`h-full w-auto object-contain transition-opacity duration-300 ${logoLoaded ? 'opacity-100' : 'opacity-0'}`}
                                         alt={`${name} logo`}
                                         loading="eager"
                                         width={256}
@@ -153,8 +168,8 @@ const Product = ({ id, name, image, description, logo, isExpanded, onToggle, ins
                         </div>
                         <p className="mb-8 font-light text-white">
                             {(instagramLink || websiteLink) && (
-                                <a 
-                                    href={instagramLink || websiteLink} 
+                                <a
+                                    href={instagramLink || websiteLink}
                                     className="text-[#74aa9b] hover:text-[#74aa9b]/80 transition-colors flex items-center justify-center gap-2 mt-4"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -215,18 +230,18 @@ const Home = () => {
                     ) : (
                         <>
                             {HOME_DATA.map((homedata) => (
-                                <Product 
-                                    {...homedata} 
-                                    key={homedata.id} 
-                                    isExpanded={false} 
-                                    onToggle={handleToggleExpand} 
+                                <Product
+                                    {...homedata}
+                                    key={homedata.id}
+                                    isExpanded={false}
+                                    onToggle={handleToggleExpand}
                                 />
                             ))}
                             <div className="lg:w-[307px] w-full h-[540px] lg:h-[405px] border-2 border-[#74aa9b] rounded-[2rem] p-2 relative">
                                 <div className="w-full h-full bg-[#00261c] rounded-[1.3rem]">
-                                    <img 
-                                        src="/images/E.jpg" 
-                                        alt="whats" 
+                                    <img
+                                        src="/images/E.jpg"
+                                        alt="whats"
                                         className="w-full h-full rounded-[2rem]"
                                         loading="eager"
                                         width={307}

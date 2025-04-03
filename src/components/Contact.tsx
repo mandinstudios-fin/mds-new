@@ -17,10 +17,9 @@ interface NotificationState {
 
 const Notification: React.FC<NotificationProps> = ({ message, type, onClose }) => {
     return (
-        <div className="fixed top-4 right-4 z-50 animate-slide-in">
-            <div className={`flex items-center gap-2 px-6 py-3 rounded-lg shadow-lg ${
-                type === 'success' ? 'bg-[#74aa9b]' : 'bg-red-500'
-            } text-white`}>
+        <div className="fixed z-50 top-4 right-4 animate-slide-in">
+            <div className={`flex items-center gap-2 px-6 py-3 rounded-lg shadow-lg ${type === 'success' ? 'bg-[#74aa9b]' : 'bg-red-500'
+                } text-white`}>
                 {type === 'success' ? (
                     <CheckCircle2 className="w-5 h-5" />
                 ) : (
@@ -43,10 +42,10 @@ const Contact = () => {
         email: '',
         phone: ''
     });
-    const [notification, setNotification] = useState<NotificationState>({ 
-        show: false, 
-        message: '', 
-        type: 'success' 
+    const [notification, setNotification] = useState<NotificationState>({
+        show: false,
+        message: '',
+        type: 'success'
     });
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -59,7 +58,7 @@ const Contact = () => {
                 },
                 body: JSON.stringify(formData),
             });
-            
+
             if (response.ok) {
                 setNotification({
                     show: true,
@@ -95,7 +94,7 @@ const Contact = () => {
                 />
             )}
             <div className='flex justify-center py-10 bg-[#00261c]'>
-                <ManDinLogo className={`w-[20rem] cursor-pointer lg:mr-[121px]`} mode="dark" onClick={() => navigate("/")} />
+                <ManDinLogo className={`w-[20rem] cursor-pointer lg:mr-[136px]`} mode="dark" onClick={() => navigate("/")} />
             </div>
             <div className='max-w-[1536px] mx-auto flex flex-col lg:flex-row items-center mt-10'>
                 <div className="flex items-center justify-center w-full h-full p-6 lg:w-1/2">
