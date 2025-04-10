@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 const AboutUs = () => {
     const navigate = useNavigate();
-    
+
     return (
         <div
             className="h-auto py-10 overflow-y-auto bg-fixed bg-center bg-cover lg:w-screen lg:h-screen lg:py-0"
@@ -12,7 +12,7 @@ const AboutUs = () => {
             <section className="max-w-[1536px] w-full h-full mx-auto flex flex-col">
                 <Header />
 
-                <div className='flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 mt-10 lg:mt-0'>
+                <div className='flex flex-col items-center justify-center gap-8 mt-10 lg:flex-row lg:gap-16 lg:mt-0'>
                     <div className='text-center lg:text-left'>
                         <h2 className='font-bold text-white text-[3.5rem] sm:text-[4rem] lg:text-[7rem] leading-[1] italic'>
                             <span>Create <br /></span>
@@ -29,25 +29,25 @@ const AboutUs = () => {
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 mt-16 lg:mt-32 mb-32 w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-0'>
                     <div className='h-[18rem] sm:h-[22rem] lg:h-[24rem] w-full p-4 flex border border-[#74aa9b] rounded-[1rem] relative bg-[#1a3c33]'>
-                        <div className='my-auto mx-auto lg:ml-20 space-y-3 sm:space-y-4 font-light text-white'>
-                            <div className='flex flex-wrap gap-2 justify-center lg:justify-start'>
+                        <div className='mx-auto my-auto space-y-3 font-light text-white lg:ml-20 sm:space-y-4'>
+                            <div className='flex flex-wrap justify-center gap-2 lg:justify-start'>
                                 <p className='px-4 sm:px-5 py-[0.3rem] border rounded-full w-24 sm:w-28 text-center text-sm sm:text-base'>Fintech</p>
                                 <p className='px-4 sm:px-5 py-[0.3rem] border rounded-full w-24 sm:w-28 text-center text-sm sm:text-base'>Infosec</p>
                             </div>
-                            <div className='flex flex-wrap gap-2 justify-center lg:justify-start'>
+                            <div className='flex flex-wrap justify-center gap-2 lg:justify-start'>
                                 <p className='px-4 sm:px-5 py-[0.3rem] border rounded-full w-fit text-sm sm:text-base'>UI/UX</p>
                                 <p className='px-4 sm:px-5 py-[0.3rem] rounded-full bg-white text-black w-32 sm:w-40 text-center text-sm sm:text-base'>Saas Apps</p>
                             </div>
-                            <div className='flex flex-wrap gap-2 justify-center lg:justify-start'>
+                            <div className='flex flex-wrap justify-center gap-2 lg:justify-start'>
                                 <p className='px-4 sm:px-5 py-[0.3rem] border rounded-full w-24 sm:w-28 text-center text-sm sm:text-base'>Web3</p>
                                 <p className='px-4 sm:px-5 py-[0.3rem] border rounded-full w-fit text-sm sm:text-base'>and More...</p>
                             </div>
                         </div>
-                        <p className='absolute text-xs bottom-5 left-1/2 lg:left-5 transform -translate-x-1/2 lg:translate-x-0 text-white/50'>Our Services</p>
+                        <p className='absolute text-xs transform -translate-x-1/2 bottom-5 left-1/2 lg:left-5 lg:translate-x-0 text-white/50'>Our Services</p>
                     </div>
                     <div className='h-[18rem] sm:h-[22rem] lg:h-[24rem] w-full p-4 px-6 sm:px-8 bg-[#74aa9b] rounded-[1rem] border border-[#74aa9b] relative'>
                         <p className='mt-8 sm:mt-10 lg:mt-14 text-[1rem] sm:text-[1.1rem] lg:text-[1.3rem] font-light'>Mandin Studios is a powerhouse of innovation, blending technology, security, and design to build cutting-edge digital solutions. With expertise in fintech, cybersecurity, user experience, and blockchain, we craft scalable and secure platforms that drive business success.</p>
-                        <p className='absolute text-xs text-black bottom-5 left-1/2 lg:left-5 transform -translate-x-1/2 lg:translate-x-0'>About Us</p>
+                        <p className='absolute text-xs text-black transform -translate-x-1/2 bottom-5 left-1/2 lg:left-5 lg:translate-x-0'>About Us</p>
                     </div>
                     <div className='h-[18rem] sm:h-[22rem] lg:h-[24rem] w-full p-4 text-white flex justify-center border border-[#74aa9b] rounded-[1rem] relative bg-[#1a3c33]'>
                         <div className='my-auto text-center'>
@@ -58,11 +58,11 @@ const AboutUs = () => {
                                 <h2>EXPERIENCES</h2>
                             </div>
                         </div>
-                        <p className='absolute text-xs bottom-5 left-1/2 lg:left-5 transform -translate-x-1/2 lg:translate-x-0 text-white/50'>Our Expertise</p>
+                        <p className='absolute text-xs transform -translate-x-1/2 bottom-5 left-1/2 lg:left-5 lg:translate-x-0 text-white/50'>Our Expertise</p>
                     </div>
                 </div>
 
-                <div className="mt-16 text-center w-full">
+                <div className="w-full mt-16 text-center">
                     <p className="font-light text-white/50">Presented by Team of ManDIn Studios</p>
                 </div>
             </section>
