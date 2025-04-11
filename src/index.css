@@ -17,6 +17,11 @@ html {
   display: none;
 }
 
+@font-face {
+  font-family: "TT";
+  src: url("/public/fonts/TT\ Trailers\ Trial\ DemiBold.ttf");
+}
+
 .product-container {
   transform: scale(1);
   transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),

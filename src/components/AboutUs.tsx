@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import Header from './Header'
 import { useNavigate } from 'react-router-dom'
 
 const AboutUs = () => {
     const navigate = useNavigate();
+    const [hovered, setHovered] = useState(null);
 
     return (
         <div
@@ -14,12 +16,14 @@ const AboutUs = () => {
 
                 <div className='flex flex-col items-center justify-center gap-8 mt-10 lg:flex-row lg:gap-16 lg:mt-0'>
                     <div className='text-center lg:text-left'>
-                        <h2 className='font-bold text-white text-[3.5rem] sm:text-[4rem] lg:text-[7rem] leading-[1] italic'>
-                            <span>Create <br /></span>
+                        <h2 className='font-bold text-[#74aa9b] text-[2.5rem] sm:text-[4rem] lg:text-[12rem] leading-[0.8] font-["TT"]'>
+                            {/* <span>Create <br /></span>
                             <span className='flex items-center gap-4 lg:gap-[2rem] justify-center lg:justify-start'>
                                 <button onClick={() => navigate("/contact")} className='text-lg sm:text-xl font-semibold bg-[#74aa9b] px-6 py-2 sm:p-4 sm:py-3 mt-4 rounded-full text-black hover:bg-[#74aa9b]/90 transition-colors'>Start now</button>
                                 <span className='text-[2.5rem] sm:text-[3rem] lg:text-[7rem]'>and sell</span>
-                            </span>
+                            </span> */}
+                            <span className='block'>WE KNOW DEVS</span>
+                            <span className='block'>WE ARE DEVS</span>
                         </h2>
                     </div>
                     <div className='flex justify-center lg:justify-start'>
@@ -30,20 +34,68 @@ const AboutUs = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 mt-16 lg:mt-32 mb-32 w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-0'>
                     <div className='h-[18rem] sm:h-[22rem] lg:h-[24rem] w-full p-4 flex border border-[#74aa9b] rounded-[1rem] relative bg-[#1a3c33]'>
                         <div className='mx-auto my-auto space-y-3 font-light text-white lg:ml-20 sm:space-y-4'>
+
                             <div className='flex flex-wrap justify-center gap-2 lg:justify-start'>
-                                <p className='px-4 sm:px-5 py-[0.3rem] border rounded-full w-24 sm:w-28 text-center text-sm sm:text-base'>Fintech</p>
-                                <p className='px-4 sm:px-5 py-[0.3rem] border rounded-full w-24 sm:w-28 text-center text-sm sm:text-base'>Infosec</p>
+                                <p
+                                    className={`px-4 sm:px-5 py-[0.3rem] border rounded-full w-24 sm:w-28 text-center text-sm sm:text-base cursor-pointer transition-colors duration-300 ${hovered === 'Fintech' ? 'bg-white text-black' : ''
+                                        }`}
+                                    onMouseEnter={() => setHovered('Fintech')}
+                                    onMouseLeave={() => setHovered(null)}
+                                >
+                                    Fintech
+                                </p>
+                                <p
+                                    className={`px-4 sm:px-5 py-[0.3rem] border rounded-full w-24 sm:w-28 text-center text-sm sm:text-base cursor-pointer transition-colors duration-300 ${hovered === 'Infosec' ? 'bg-white text-black' : ''
+                                        }`}
+                                    onMouseEnter={() => setHovered('Infosec')}
+                                    onMouseLeave={() => setHovered(null)}
+                                >
+                                    Infosec
+                                </p>
                             </div>
+
                             <div className='flex flex-wrap justify-center gap-2 lg:justify-start'>
-                                <p className='px-4 sm:px-5 py-[0.3rem] border rounded-full w-fit text-sm sm:text-base'>UI/UX</p>
-                                <p className='px-4 sm:px-5 py-[0.3rem] rounded-full bg-white text-black w-32 sm:w-40 text-center text-sm sm:text-base'>Saas Apps</p>
+                                <p
+                                    className={`px-4 sm:px-5 py-[0.3rem] border rounded-full w-fit text-sm sm:text-base cursor-pointer transition-colors duration-300 ${hovered === 'UI/UX' ? 'bg-white text-black' : ''
+                                        }`}
+                                    onMouseEnter={() => setHovered('UI/UX')}
+                                    onMouseLeave={() => setHovered(null)}
+                                >
+                                    UI/UX
+                                </p>
+                                <p
+                                    className={`px-4 sm:px-5 py-[0.3rem] rounded-full w-32 sm:w-40 text-center text-sm sm:text-base cursor-pointer transition-colors duration-300 ${!hovered ? 'bg-white text-black border' : 'border'
+                                        }`}
+                                    onMouseEnter={() => setHovered('Saas Apps')}
+                                    onMouseLeave={() => setHovered(null)}
+                                >
+                                    Saas Apps
+                                </p>
                             </div>
+
                             <div className='flex flex-wrap justify-center gap-2 lg:justify-start'>
-                                <p className='px-4 sm:px-5 py-[0.3rem] border rounded-full w-24 sm:w-28 text-center text-sm sm:text-base'>Web3</p>
-                                <p className='px-4 sm:px-5 py-[0.3rem] border rounded-full w-fit text-sm sm:text-base'>and More...</p>
+                                <p
+                                    className={`px-4 sm:px-5 py-[0.3rem] border rounded-full w-24 sm:w-28 text-center text-sm sm:text-base cursor-pointer transition-colors duration-300 ${hovered === 'Web3' ? 'bg-white text-black' : ''
+                                        }`}
+                                    onMouseEnter={() => setHovered('Web3')}
+                                    onMouseLeave={() => setHovered(null)}
+                                >
+                                    Web3
+                                </p>
+                                <p
+                                    className={`px-4 sm:px-5 py-[0.3rem] border rounded-full w-fit text-sm sm:text-base cursor-pointer transition-colors duration-300 ${hovered === 'More' ? 'bg-white text-black' : ''
+                                        }`}
+                                    onMouseEnter={() => setHovered('More')}
+                                    onMouseLeave={() => setHovered(null)}
+                                >
+                                    and More...
+                                </p>
                             </div>
+
                         </div>
-                        <p className='absolute text-xs transform -translate-x-1/2 bottom-5 left-1/2 lg:left-5 lg:translate-x-0 text-white/50'>Our Services</p>
+                        <p className='absolute text-xs transform -translate-x-1/2 bottom-5 left-1/2 lg:left-5 lg:translate-x-0 text-white/50'>
+                            Our Services
+                        </p>
                     </div>
                     <div className='h-[18rem] sm:h-[22rem] lg:h-[24rem] w-full p-4 px-6 sm:px-8 bg-[#74aa9b] rounded-[1rem] border border-[#74aa9b] relative'>
                         <p className='mt-8 sm:mt-10 lg:mt-14 text-[1rem] sm:text-[1.1rem] lg:text-[1.3rem] font-light'>Mandin Studios is a powerhouse of innovation, blending technology, security, and design to build cutting-edge digital solutions. With expertise in fintech, cybersecurity, user experience, and blockchain, we craft scalable and secure platforms that drive business success.</p>
